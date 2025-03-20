@@ -1,27 +1,50 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mtangalv <mtangalv@student.42abudhabi.a    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/02 18:11:16 by mtangalv          #+#    #+#              #
+#    Updated: 2025/03/20 14:57:52 by mtangalv         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
-COMP = cc
+CFILES = src/push_swap.c \
+	utils/parsing.c \
+	utils/errs.c \
+	utils/list_funcs.c
 
-FLAGS = -Wall -Werror -Wextra
+OBJECTS = $(CFILES:.c=.o)
 
-SRC = push_swap.c \
+LIBFT_PATH = libft
+LIBFT_LIB = $(LIBFT_PATH)/libft.a
+LIBFT_FLAGS = -L$(LIBFT_PATH) -lft
 
-OFILES = $(SRC:%.c=%.o)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+%.o : %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-%.o: %.c
-	$(COMP) $(FLAGS) -o $@ -c $<
+all: subsystems $(NAME)
 
-$(NAME): $(OFILES)
-	ar rcs $(NAME) $(OFILES)
+subsystems:
+	@make -C $(LIBFT_PATH)
+
+$(NAME): $(OBJECTS) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT_FLAGS) -o $(NAME)
 
 clean:
-	rm -f $(OFILES)
+	make clean -C libft/
+	rm -rf $(OBJECTS)
 
 fclean: clean
+	make fclean -C libft/
 	rm -f $(NAME)
 
-re: fclean all
+re : fclean all
 
 .PHONY:	all clean fclean re
