@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtangalv <mtangalv@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:40:32 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/20 16:33:45 by mtangalv         ###   ########.fr       */
+/*   Updated: 2025/03/22 14:55:57 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ t_stack	*new_stack_node(int num, int index)
 //add a node to the end of a list
 void	stack_add_back(t_stack **head, t_stack *node)
 {
-	t_stack	*tmp;
-
-	tmp = stack_last(*head);
 	if (!head)
 		return ;
 	if (*head == NULL)
@@ -50,6 +47,20 @@ t_stack	*stack_last(t_stack *head)
 	while (head->next != NULL)
 		head = head->next;
 	return (head);
+}
+int	stack_size(t_stack *head)
+{
+	int	num;
+
+	num = 1;
+	if (head == NULL)
+		return (0);
+	while (head->next != NULL)
+	{
+		num++;
+		head = head->next;
+	}
+	return (num);
 }
 
 void print_stack(t_stack *head, int	rev)

@@ -3,19 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtangalv <mtangalv@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 18:11:16 by mtangalv          #+#    #+#              #
-#    Updated: 2025/03/20 14:57:52 by mtangalv         ###   ########.fr        #
+#    Updated: 2025/03/23 16:41:59 by zeroql           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CFILES = src/push_swap.c \
+	src/init_stacks.c \
+	src/algo.c \
 	utils/parsing.c \
 	utils/errs.c \
-	utils/list_funcs.c
+	utils/list_funcs.c \
+	utils/swap_operations.c \
+	utils/rotate_operations.c
 
 OBJECTS = $(CFILES:.c=.o)
 

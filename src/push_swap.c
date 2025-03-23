@@ -3,60 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtangalv <mtangalv@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:11:47 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/20 17:02:57 by mtangalv         ###   ########.fr       */
+/*   Updated: 2025/03/23 15:41:36 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static t_stack *init_str(char *argv)
+int	stack_sorted(t_stack *stk)
 {
-	t_stack *a = NULL;
-	char **arr;
-	int i;
+	int	num;
 
-	i = 0;
-	arr = ft_split(argv, ' ');
-	while(arr[i])
+	num = stk->num;
+	while (stk)
 	{
-		stack_add_back(&a, new_stack_node(ft_atoi(arr[i]), i));
-		i++;
+		if (stk->num < num)
+			return (0);
+		num = stk->num;
+		stk = stk->next;
 	}
-	free(arr);
-	return (a);
+	return (1);
 }
 
-static t_stack *init_stack(int argc, char **argv)
+static void sort_stack(t_stack *a)
 {
-	t_stack	*a;
-	char	**arr;
-	int		i;
-	int		index;
-
-	i = 0;
-	index = 0;
-	a = NULL;
-	if (argc == 2)
-		a = init_str(argv[1]);
-	else
-	{
-		i = 1;
-		arr = argv;
-		while (i < argc)
-			stack_add_back(&a, new_stack_node(ft_atoi(arr[i++]), index++));
-	}
-	return (a);
+	if (stack_size(a) == 2)
+		swap_a(&a, 1);
+	if (stack_size(a) == 3)
+		sort_three(&a, 1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
 	int	i;
-	stack_b = NULL;
 
 	i = 1;
 	if (argc == 1)
@@ -70,4 +52,8 @@ int	main(int argc, char **argv)
 	}
 	stack_a = init_stack(argc, argv);
 	check_dup(stack_a);
+	if (!stack_sorted(stack_a))
+		sort_stack(stack_a);
+	ft_free(stack_a);
+	return (0);
 }

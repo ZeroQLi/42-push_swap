@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errs.c                                             :+:      :+:    :+:   */
+/*   swap_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:30:54 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/22 14:49:30 by zeroql           ###   ########.fr       */
+/*   Created: 2025/03/22 14:10:46 by zeroql            #+#    #+#             */
+/*   Updated: 2025/03/23 16:37:50 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// free the given stack
-void ft_free(t_stack *stack)
+void	swap_a(t_stack	**a, int only)
 {
 	t_stack *tmp;
 
-	tmp = NULL;
-	if (!stack)
+	if (!*a || !(*a)->next)
 		return ;
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-		tmp = NULL;
-	}
-}
-
-int	ft_error(void)
-{
-	ft_printf("Error\n");
-	exit(1);
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = (*a)->next;
+	(*a)->next = tmp;
+	if (only == 1)
+		ft_printf("sa\n");
 }

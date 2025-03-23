@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtangalv <mtangalv@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:04:18 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/20 16:52:40 by mtangalv         ###   ########.fr       */
+/*   Updated: 2025/03/23 15:40:55 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,39 @@ int	check_dup(t_stack *stk)
 		stk = stk->next;
 	}
 	return (0);
+}
+t_stack *stack_max(t_stack *head)
+{
+	t_stack	*current;
+
+	if (head == NULL)
+		return (head);
+	current = head;
+	while (head->next != NULL)
+	{
+		if (head->num > current->num)
+			current = head;
+		head = head->next;
+	}
+	if (head->num > current->num)
+		current = head;
+	return (current);
+}
+
+t_stack *stack_min(t_stack *head)
+{
+	t_stack *current;
+
+	if (head == NULL)
+		return (head);
+	current = head;
+	while (head->next != NULL)
+	{
+		if (head->num < current->num)
+			current = head;
+		head = head->next;
+	}
+	if (head->num < current->num)
+		current = head;
+	return (current);
 }
