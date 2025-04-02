@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:11:47 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/23 15:41:36 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/03/29 16:43:02 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,15 @@ int	stack_sorted(t_stack *stk)
 
 static void sort_stack(t_stack *a)
 {
+	t_stack	*b;
+
+	b = NULL;
 	if (stack_size(a) == 2)
 		swap_a(&a, 1);
 	if (stack_size(a) == 3)
 		sort_three(&a, 1);
+	else
+		sort_big(&a, &b);
 }
 
 int	main(int argc, char **argv)
@@ -41,6 +46,7 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = 1;
+	stack_a = NULL;
 	if (argc == 1)
 		(exit(1));
 	if (argc == 2)

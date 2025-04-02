@@ -1,0 +1,12 @@
+{
+	"configurations": [
+	{
+		"type": "lldb",
+		"request": "launch",
+		"name": "Launch",
+		"program": "${workspaceFolder}/push_swap",
+		"args": ["3 5 2 7 1"],
+		"cwd": "${workspaceFolder}"
+	}
+	]
+}

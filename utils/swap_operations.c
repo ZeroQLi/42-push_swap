@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 14:10:46 by zeroql            #+#    #+#             */
-/*   Updated: 2025/03/23 16:37:50 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/03/29 17:16:04 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,10 @@ void	swap_a(t_stack	**a, int only)
 	(*a)->next = tmp;
 	if (only == 1)
 		ft_printf("sa\n");
+}
+void swap_b(t_stack **b, int only)
+{
+	swap_a(b, 0);
+	if (only == 1)
+		ft_printf("sb\n");
 }

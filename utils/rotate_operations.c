@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:59:37 by zeroql            #+#    #+#             */
-/*   Updated: 2025/03/23 16:56:09 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/03/29 17:16:41 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,16 @@ void reverse_rotate_a(t_stack **a, int only)
 	tmp->next->prev = tmp;
 	if (only == 1)
 		ft_printf("rra\n");
+}
+void rotate_b(t_stack **b, int only)
+{
+	rotate_a(b, 0);
+	if (only == 1)
+		ft_printf("rb\n");
+}
+void reverse_rotate_b(t_stack **b, int only)
+{
+	reverse_rotate_a(b, 0);
+	if (only == 1)
+		ft_printf("rrb\n");
 }
