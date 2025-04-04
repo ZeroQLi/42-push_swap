@@ -6,7 +6,7 @@
 #    By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 18:11:16 by mtangalv          #+#    #+#              #
-#    Updated: 2025/04/04 15:51:45 by zeroql           ###   ########.fr        #
+#    Updated: 2025/04/04 23:43:49 by zeroql           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ CFILES = src/push_swap.c \
 	utils/parsing.c \
 	utils/errs.c \
 	utils/list_funcs.c \
+	utils/more_list_funcs.c \
 	utils/swap_operations.c \
 	utils/rotate_operations.c \
 	utils/push_operations.c

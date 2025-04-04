@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:04:18 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/23 15:40:55 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/04 23:44:21 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,17 @@ int check_arg(char *str)
 
 void parse_string(char *str)
 {
+	if (ft_strlen(str) == 0)
+		ft_error();
 	char **arr;
 
 	arr = ft_split(str, ' ');
 	while (*arr)
-		check_arg(*arr++);
+	{
+		check_arg(*arr);
+		free(*arr);
+		*arr++ = NULL;
+	}
 }
 
 int	check_dup(t_stack *stk)
@@ -62,39 +68,4 @@ int	check_dup(t_stack *stk)
 		stk = stk->next;
 	}
 	return (0);
-}
-t_stack *stack_max(t_stack *head)
-{
-	t_stack	*current;
-
-	if (head == NULL)
-		return (head);
-	current = head;
-	while (head->next != NULL)
-	{
-		if (head->num > current->num)
-			current = head;
-		head = head->next;
-	}
-	if (head->num > current->num)
-		current = head;
-	return (current);
-}
-
-t_stack *stack_min(t_stack *head)
-{
-	t_stack *current;
-
-	if (head == NULL)
-		return (head);
-	current = head;
-	while (head->next != NULL)
-	{
-		if (head->num < current->num)
-			current = head;
-		head = head->next;
-	}
-	if (head->num < current->num)
-		current = head;
-	return (current);
 }

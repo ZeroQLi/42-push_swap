@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 13:57:38 by zeroql            #+#    #+#             */
-/*   Updated: 2025/03/22 13:58:17 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/04 23:40:39 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ t_stack *init_str(char *argv)
 	while (arr[i])
 	{
 		stack_add_back(&a, new_stack_node(ft_atoi(arr[i]), i));
+		free(arr[i]);
+		arr[i] = NULL;
 		i++;
 	}
 	free(arr);
+	arr = NULL;
 	return (a);
 }
 

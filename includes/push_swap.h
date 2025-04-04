@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:30:10 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/04 15:51:11 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/04 23:20:48 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ typedef struct s_stack
 // error and parsing functions
 int		check_arg(char *arg);
 int		ft_error(void);
+int		ft_error_stack(t_stack **stk);
 void	parse_string(char *str);
 int		check_dup(t_stack *stk);
-void	ft_free(t_stack *stack);
+void	ft_free(t_stack **stack);
 
 // linked list functions
 t_stack *new_stack_node(int num, int index);
@@ -74,7 +75,7 @@ void	move_a_to_b(t_stack **a, t_stack **b);
 void	init_b_to_a(t_stack *a, t_stack *b);
 void	move_b_to_a(t_stack **a, t_stack **b);
 	// algo operations
-	void set_index_median(t_stack *stk);
+void	set_index_median(t_stack *stk);
 t_stack	*get_cheapest(t_stack *a);
 void	rr_stack(t_stack **a, t_stack **b, t_stack *cheapest_node);
 void	rrr_stack(t_stack **a, t_stack **b, t_stack *cheapest_node);
