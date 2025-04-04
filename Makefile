@@ -6,7 +6,7 @@
 #    By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 18:11:16 by mtangalv          #+#    #+#              #
-#    Updated: 2025/04/02 16:34:59 by zeroql           ###   ########.fr        #
+#    Updated: 2025/04/04 15:51:45 by zeroql           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,11 @@ NAME = push_swap
 CFILES = src/push_swap.c \
 	src/init_stacks.c \
 	src/algo.c \
+	src/algo_operations.c \
 	src/init_a_to_b.c \
+	src/move_a_to_b.c \
+	src/init_b_to_a.c \
+	src/move_b_to_a.c \
 	utils/parsing.c \
 	utils/errs.c \
 	utils/list_funcs.c \

@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:40:32 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/02 17:44:03 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/04 21:19:13 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ t_stack	*new_stack_node(int num, int index)
 	s_node->next = NULL;
 	s_node->prev = NULL;
 	s_node->above_median = 0;
+	s_node->target = NULL;
+	s_node->push_cost = INT_MAX;
+	s_node->cheapest = 0;
 	return (s_node);
 }
 //add a node to the end of a list
@@ -53,19 +56,22 @@ int	stack_size(t_stack *head)
 {
 	int	num;
 
-	num = 1;
 	if (head == NULL)
 		return (0);
-	while (head->next != NULL)
+	num = 0;
+	while (head)
 	{
-		num++;
 		head = head->next;
+		num++;
 	}
 	return (num);
 }
 
-void print_stack(t_stack *head, int	rev)
+void print_stack(t_stack **stk, int	rev)
 {
+	t_stack *head;
+
+	head = *stk;
 	if (!head)
 	{
 		ft_printf("empty\n");
@@ -73,22 +79,20 @@ void print_stack(t_stack *head, int	rev)
 	}
 	if (rev == 1)
 	{
-		head = stack_last(head);
-		while (head->prev != NULL)
+		while (head->next != NULL)
 		{
-			ft_printf("%i: %i, %i\n", head->index, head->num, head->above_median);
-			head = head->prev;
+			ft_printf("index: %i, num: %i, above_median: %i, push_cost: %i\n", head->index, head->num, head->above_median, head->push_cost);
+			head = head->next;
 		}
-		ft_printf("%i: %i, %i\n", head->index, head->num, head->above_median);
+		ft_printf("index: %i, num: %i, above_median: %i, push_cost: %i\n", head->index, head->num, head->above_median, head->push_cost);
 	}
 	else
 	{
 		while (head->next != NULL)
 		{
-			ft_printf("%i: %i, %i\n", head->index, head->num, head->above_median);
-
+			ft_printf("index: %i, num: %i, above_median: %i, target: %i, push_cost: %i\n", head->index, head->num, head->above_median, head->target->num, head->push_cost);
 			head = head->next;
 		}
-		ft_printf("%i: %i, %i\n", head->index, head->num, head->above_median);
+		ft_printf("index: %i, num: %i, above_median: %i, target: %i, push_cost: %i\n", head->index, head->num, head->above_median, head->target->num, head->push_cost);
 	}
 }

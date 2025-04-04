@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_operations.c                                  :+:      :+:    :+:   */
+/*   move_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 14:10:46 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 22:47:53 by zeroql           ###   ########.fr       */
+/*   Created: 2025/04/04 15:50:38 by zeroql            #+#    #+#             */
+/*   Updated: 2025/04/04 22:54:44 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap_a(t_stack	**a, int only)
+void move_b_to_a(t_stack **a, t_stack **b)
 {
-	if (!*a || !(*a)->next)
-		return ;
-	*a = (*a)->next;
-	(*a)->prev->prev = *a;
-	(*a)->prev->next = (*a)->next;
-	if ((*a)->next)
-		(*a)->next->prev = (*a)->prev;
-	(*a)->next = (*a)->prev;
-	(*a)->prev = NULL;
-	if (only == 1)
-		ft_printf("sa\n");
-}
-void swap_b(t_stack **b, int only)
-{
-	swap_a(b, 0);
-	if (only == 1)
-		ft_printf("sb\n");
+	check_top_stack(a, (*b)->target, 'a');
+	push_a(b, a, 1);
 }

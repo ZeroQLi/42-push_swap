@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:11:47 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/03/29 16:43:02 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/03 17:10:15 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	stack_sorted(t_stack *stk)
 	int	num;
 
 	num = stk->num;
+	if (!stk)
+		return (1);
 	while (stk)
 	{
 		if (stk->num < num)

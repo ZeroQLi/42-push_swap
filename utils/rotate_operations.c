@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:59:37 by zeroql            #+#    #+#             */
-/*   Updated: 2025/03/29 17:16:41 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/04 22:34:57 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,37 @@ void	rotate_a(t_stack **a, int only)
 
 	if (!*a || !(*a)->next)
 		return ;
-	tmp = *a;
-	
-	*a = stack_last(*a);
-	(*a)->next = tmp;
-	(*a) = tmp->next;
-	tmp->next = NULL;
+	tmp = stack_last(*a);
+	tmp->next = *a;
+	*a = (*a)->next;
+	(*a)->prev = NULL;
+	tmp->next->prev = tmp;
+	tmp->next->next = NULL;
 	if (only == 1)
 		ft_printf("ra\n");
 }
 
 void reverse_rotate_a(t_stack **a, int only)
 {
-	t_stack *tmp;
-
+	t_stack *last;
+	
 	if (!*a || !(*a)->next)
-		return;
+		return ;
 
-	tmp = stack_last(*a);
-	tmp->prev->next = NULL;
-	tmp->next = *a;
-	tmp->prev = NULL;
-	*a = tmp;
-	tmp->next->prev = tmp;
+	last = stack_last(*a);
+
+	// Update the new last node (previously second-to-last)
+	last->prev->next = NULL;
+
+	// Update the old head's prev pointer
+	(*a)->prev = last;
+
+	// Update the new head (last node)
+	last->next = *a;
+	last->prev = NULL;
+
+	// Set the new head
+	*a = last;
 	if (only == 1)
 		ft_printf("rra\n");
 }
