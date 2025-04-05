@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:22:22 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/05 18:18:46 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:14:14 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ void	sort_three(t_stack **a, int only)
 	if ((*a)-> num > (*a)->next->num)
 		swap_a(a, only);
 }
+
 static void	min_top(t_stack **stk)
 {
-	while((*stk)->num != stack_min(*stk)->num)
+	while ((*stk)->num != stack_min(*stk)->num)
 	{
 		if (stack_min(*stk)->above_median == 1)
 			rotate_a(stk, 1);

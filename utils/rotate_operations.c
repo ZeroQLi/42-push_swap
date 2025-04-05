@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:59:37 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 22:34:57 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:22:12 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,37 +28,30 @@ void	rotate_a(t_stack **a, int only)
 		ft_printf("ra\n");
 }
 
-void reverse_rotate_a(t_stack **a, int only)
+void	reverse_rotate_a(t_stack **a, int only)
 {
-	t_stack *last;
-	
+	t_stack	*tmp;
+
 	if (!*a || !(*a)->next)
 		return ;
-
-	last = stack_last(*a);
-
-	// Update the new last node (previously second-to-last)
-	last->prev->next = NULL;
-
-	// Update the old head's prev pointer
-	(*a)->prev = last;
-
-	// Update the new head (last node)
-	last->next = *a;
-	last->prev = NULL;
-
-	// Set the new head
-	*a = last;
+	tmp = stack_last(*a);
+	tmp->prev->next = NULL;
+	(*a)->prev = tmp;
+	tmp->next = *a;
+	tmp->prev = NULL;
+	*a = tmp;
 	if (only == 1)
 		ft_printf("rra\n");
 }
-void rotate_b(t_stack **b, int only)
+
+void	rotate_b(t_stack **b, int only)
 {
 	rotate_a(b, 0);
 	if (only == 1)
 		ft_printf("rb\n");
 }
-void reverse_rotate_b(t_stack **b, int only)
+
+void	reverse_rotate_b(t_stack **b, int only)
 {
 	reverse_rotate_a(b, 0);
 	if (only == 1)

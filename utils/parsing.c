@@ -6,16 +6,16 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:04:18 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 18:13:58 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:24:03 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int check_arg(char *str)
+int	check_arg(char *str)
 {
-	long long int ans;
-	int result;
+	long long int	ans;
+	int				result;
 
 	ans = 0;
 	result = 1;
@@ -37,10 +37,10 @@ int check_arg(char *str)
 	return (result * ans);
 }
 
-static int check_arg_string(char *str, char **arr)
+static int	check_arg_string(char *str, char **arr)
 {
-	long long int ans;
-	int result;
+	long long int	ans;
+	int				result;
 
 	ans = 0;
 	result = 1;
@@ -62,13 +62,13 @@ static int check_arg_string(char *str, char **arr)
 	return (result * ans);
 }
 
-void parse_string(char *str)
+void	parse_string(char *str)
 {
-	int	i;
-	char **arr;
+	int		i;
+	char	**arr;
+
 	if (ft_strlen(str) == 0)
 		ft_error();
-
 	i = 0;
 	arr = ft_split(str, ' ');
 	while (arr[i])
@@ -87,7 +87,7 @@ int	check_dup(t_stack *stk)
 {
 	t_stack	*tmp;
 
-	while(stk)
+	while (stk)
 	{
 		tmp = stk->next;
 		while (tmp)

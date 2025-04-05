@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 21:39:21 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/03 23:22:10 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:16:05 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ t_stack	*get_cheapest(t_stack *stk)
 
 void	move_a_to_b(t_stack **a, t_stack **b)
 {
-	t_stack	*cheapest_node;
-	
-	cheapest_node = get_cheapest(*a);
-	if (cheapest_node->above_median == 1 && cheapest_node->target->above_median == 1)
-		rr_stack(a, b, cheapest_node);
-	else if (cheapest_node->above_median == 0 && cheapest_node->target->above_median == 0)
-		rrr_stack(a, b, cheapest_node);
-	check_top_stack(a, cheapest_node, 'a');
-	check_top_stack(b, cheapest_node->target, 'b');
+	t_stack	*cheapest;
+
+	cheapest = get_cheapest(*a);
+	if (cheapest->above_median == 1 && cheapest->target->above_median == 1)
+		rr_stack(a, b, cheapest);
+	else if (cheapest->above_median == 0 && cheapest->target->above_median == 0)
+		rrr_stack(a, b, cheapest);
+	check_top_stack(a, cheapest, 'a');
+	check_top_stack(b, cheapest->target, 'b');
 	push_b(b, a, 1);
 }

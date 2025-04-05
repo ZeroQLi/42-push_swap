@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:30:10 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 18:03:30 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:19:50 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ int		check_dup(t_stack *stk);
 void	ft_free(t_stack **stack);
 
 // linked list functions
-t_stack *new_stack_node(int num, int index);
+t_stack	*new_stack_node(int num, int index);
 void	stack_add_back(t_stack **head, t_stack *node);
 t_stack	*stack_last(t_stack *head);
-void	print_stack(t_stack **stk, int rev);
 int		stack_size(t_stack *head);
 
 // stack functions
@@ -54,22 +53,20 @@ t_stack	*stack_min(t_stack *head);
 t_stack	*stack_max(t_stack *head);
 
 // stack operations
-void swap_a(t_stack **stk, int only);
-void swap_b(t_stack **b, int only);
-
-void rotate_a(t_stack **a, int only);
-void reverse_rotate_a(t_stack **a, int only);
-void rotate_b(t_stack **b, int only);
-void reverse_rotate_b(t_stack **b, int only);
-void rotate_both(t_stack **a, t_stack **b, int only);
-void reverse_rotate_both(t_stack **a, t_stack **b, int only);
-
-void push_a(t_stack **a, t_stack **b, int only);
-void push_b(t_stack **a, t_stack **b, int only);
+void	swap_a(t_stack **stk, int only);
+void	swap_b(t_stack **b, int only);
+void	rotate_a(t_stack **a, int only);
+void	reverse_rotate_a(t_stack **a, int only);
+void	rotate_b(t_stack **b, int only);
+void	reverse_rotate_b(t_stack **b, int only);
+void	rotate_both(t_stack **a, t_stack **b, int only);
+void	reverse_rotate_both(t_stack **a, t_stack **b, int only);
+void	push_a(t_stack **a, t_stack **b, int only);
+void	push_b(t_stack **a, t_stack **b, int only);
 
 // algo functions
 int		stack_sorted(t_stack *stk);
-void	sort_three(t_stack **, int only);
+void	sort_three(t_stack **a, int only);
 void	sort_big(t_stack **a, t_stack **b);
 void	init_a_to_b(t_stack *a, t_stack *b);
 void	move_a_to_b(t_stack **a, t_stack **b);

@@ -6,15 +6,15 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 23:43:25 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 23:43:36 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:18:07 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack *stack_max(t_stack *head)
+t_stack	*stack_max(t_stack *head)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	if (head == NULL)
 		return (head);
@@ -30,9 +30,9 @@ t_stack *stack_max(t_stack *head)
 	return (current);
 }
 
-t_stack *stack_min(t_stack *head)
+t_stack	*stack_min(t_stack *head)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	if (head == NULL)
 		return (head);

@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:24:14 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 23:00:44 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:15:08 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	set_index_median(t_stack *stk)
 {
 	int	i;
-	int median;
+	int	median;
 
 	i = 0;
 	if (!stk)
@@ -39,7 +39,7 @@ static void	target_a(t_stack *a, t_stack *b)
 	t_stack	*target_a;
 	long	closest_num;
 
-	while(a)
+	while (a)
 	{
 		closest_num = LONG_MIN;
 		current_b = b;
@@ -60,7 +60,7 @@ static void	target_a(t_stack *a, t_stack *b)
 	}
 }
 
-static void cost_a(t_stack *a, t_stack *b)
+static void	cost_a(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
@@ -79,10 +79,11 @@ static void cost_a(t_stack *a, t_stack *b)
 		a = a->next;
 	}
 }
+
 static void	find_cheapest(t_stack *stk)
 {
-	long cheapest_val;
-	t_stack *cheapest_node;
+	long	cheapest_val;
+	t_stack	*cheapest_node;
 
 	if (!stk)
 		return ;

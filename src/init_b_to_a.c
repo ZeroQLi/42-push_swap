@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:04:25 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 21:28:41 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:09:37 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	target_b(t_stack *a, t_stack *b)
 	t_stack	*current_a;
 	t_stack	*target_b;
 	long	closest_num;
-	
+
 	while (b)
 	{
 		closest_num = LONG_MAX;

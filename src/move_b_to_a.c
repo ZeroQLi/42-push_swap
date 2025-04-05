@@ -6,13 +6,13 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:38 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 22:54:44 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:10:34 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void move_b_to_a(t_stack **a, t_stack **b)
+void	move_b_to_a(t_stack **a, t_stack **b)
 {
 	check_top_stack(a, (*b)->target, 'a');
 	push_a(b, a, 1);

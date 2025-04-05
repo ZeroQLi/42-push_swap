@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:11:47 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 18:29:39 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:10:14 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	stack_sorted(t_stack *stk)
 	return (1);
 }
 
-static void sort_stack(t_stack **a)
+static void	sort_stack(t_stack **a)
 {
 	t_stack	*b;
 
@@ -45,7 +45,7 @@ static void sort_stack(t_stack **a)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	int	i;
+	int		i;
 
 	i = 1;
 	stack_a = NULL;
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 		parse_string(argv[1]);
 	else
 	{
-		while(i < argc)
+		while (i < argc)
 			check_arg(argv[i++]);
 	}
 	stack_a = init_stack(argc, argv);

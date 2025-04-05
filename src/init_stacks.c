@@ -6,19 +6,20 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 13:57:38 by zeroql            #+#    #+#             */
-/*   Updated: 2025/04/04 23:40:39 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 20:13:32 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack *init_str(char *argv)
+t_stack	*init_str(char *argv)
 {
-	t_stack *a = NULL;
-	char **arr;
-	int i;
+	t_stack	*a;
+	char	**arr;
+	int		i;
 
 	i = 0;
+	a = NULL;
 	arr = ft_split(argv, ' ');
 	while (arr[i])
 	{
@@ -32,12 +33,12 @@ t_stack *init_str(char *argv)
 	return (a);
 }
 
-t_stack *init_stack(int argc, char **argv)
+t_stack	*init_stack(int argc, char **argv)
 {
-	t_stack *a;
-	char **arr;
-	int i;
-	int index;
+	t_stack	*a;
+	char	**arr;
+	int		i;
+	int		index;
 
 	i = 0;
 	index = 0;
