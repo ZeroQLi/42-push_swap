@@ -6,7 +6,7 @@
 /*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:30:10 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/04 23:20:48 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/05 18:03:30 by zeroql           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_stack
 int		check_arg(char *arg);
 int		ft_error(void);
 int		ft_error_stack(t_stack **stk);
+int		ft_error_string(char **arr);
 void	parse_string(char *str);
 int		check_dup(t_stack *stk);
 void	ft_free(t_stack **stack);
