@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   list_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mtangalv <mtangalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:40:32 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 20:20:14 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/15 16:37:44 by mtangalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-//create new node
 t_stack	*new_stack_node(int num, int index)
 {
 	t_stack	*s_node;

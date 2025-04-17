@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mtangalv <mtangalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:04:18 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 20:24:03 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/14 16:46:54 by mtangalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	check_arg(char *str)
 	{
 		if (!ft_isdigit(*str))
 			ft_error();
+		if ((result * ans) > 2147483647 || (result * ans) < -2147483648)
+			ft_error();
 		ans = (ans * 10) + (*str - 48);
 		str++;
 	}
-	if ((result * ans) > 2147483647 || (result * ans) < -2147483648)
-		ft_error();
 	return (result * ans);
 }
 
@@ -71,6 +71,12 @@ void	parse_string(char *str)
 		ft_error();
 	i = 0;
 	arr = ft_split(str, ' ');
+	if (!*arr)
+	{
+		free(arr);
+		arr = NULL;
+		ft_error();
+	}
 	while (arr[i])
 		check_arg_string(arr[i++], arr);
 	i = 0;
@@ -83,20 +89,22 @@ void	parse_string(char *str)
 	arr = NULL;
 }
 
-int	check_dup(t_stack *stk)
+int	check_dup(t_stack **stk)
 {
 	t_stack	*tmp;
+	t_stack	*check;
 
-	while (stk)
+	check = *stk;
+	while (check)
 	{
-		tmp = stk->next;
+		tmp = check->next;
 		while (tmp)
 		{
-			if (tmp->num == stk->num)
-				ft_error_stack(&stk);
+			if (tmp->num == check->num)
+				ft_error_stack(stk);
 			tmp = tmp->next;
 		}
-		stk = stk->next;
+		check = check->next;
 	}
 	return (0);
 }

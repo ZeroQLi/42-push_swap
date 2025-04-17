@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mtangalv <mtangalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:11:47 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 20:10:14 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/14 15:23:21 by mtangalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 			check_arg(argv[i++]);
 	}
 	stack_a = init_stack(argc, argv);
-	check_dup(stack_a);
+	check_dup(&stack_a);
 	if (!stack_sorted(stack_a))
 		sort_stack(&stack_a);
 	ft_free(&stack_a);

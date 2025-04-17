@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mtangalv <mtangalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:30:10 by mtangalv          #+#    #+#             */
-/*   Updated: 2025/04/05 20:19:50 by zeroql           ###   ########.fr       */
+/*   Updated: 2025/04/15 16:38:10 by mtangalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <stdbool.h>
 
 typedef struct s_stack
 {
@@ -37,7 +36,7 @@ int		ft_error(void);
 int		ft_error_stack(t_stack **stk);
 int		ft_error_string(char **arr);
 void	parse_string(char *str);
-int		check_dup(t_stack *stk);
+int		check_dup(t_stack **stk);
 void	ft_free(t_stack **stack);
 
 // linked list functions
@@ -72,7 +71,7 @@ void	init_a_to_b(t_stack *a, t_stack *b);
 void	move_a_to_b(t_stack **a, t_stack **b);
 void	init_b_to_a(t_stack *a, t_stack *b);
 void	move_b_to_a(t_stack **a, t_stack **b);
-	// algo operations
+
 void	set_index_median(t_stack *stk);
 t_stack	*get_cheapest(t_stack *a);
 void	rr_stack(t_stack **a, t_stack **b, t_stack *cheapest_node);

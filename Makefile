@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zeroql <zeroql@student.42.fr>              +#+  +:+       +#+         #
+#    By: mtangalv <mtangalv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 18:11:16 by mtangalv          #+#    #+#              #
-#    Updated: 2025/04/04 23:43:49 by zeroql           ###   ########.fr        #
+#    Updated: 2025/04/14 21:03:59 by mtangalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ LIBFT_LIB = $(LIBFT_PATH)/libft.a
 LIBFT_FLAGS = -L$(LIBFT_PATH) -lft
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -O3
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -49,11 +49,11 @@ $(NAME): $(OBJECTS) $(LIBFT_LIB)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT_FLAGS) -o $(NAME)
 
 clean:
-	make clean -C libft/
+	@make clean -C $(LIBFT_PATH)
 	rm -rf $(OBJECTS)
 
 fclean: clean
-	make fclean -C libft/
+	@make fclean -C $(LIBFT_PATH)
 	rm -f $(NAME)
 
 re : fclean all
